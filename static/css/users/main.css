@@ -1,0 +1,122 @@
+.main {
+    background-image: url('../../images/indie_band.jpg');
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+}
+.main__welcome {
+    font-family: 'Great Vibes', cursive;
+    font-size: 80px;
+    font-weight: 600;
+    color: #f1c40f;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+.welcome__sub {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #f1c40f;
+    margin: 20px auto;
+}
+.login__box {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    max-width: 700px;
+    min-width: 300px;
+    margin: 0 auto;
+}
+.login__box #google {
+    margin-top: 150px;
+    background-color: #24292E;
+    color: #f2f2f2;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 50px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+.login__box #google:active {
+    transform: scale(0.95);
+}
+.login__box #facebook {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #4294FF;
+    color: #f2f2f2;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 50px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+.login__box #facebook:active {
+    transform: scale(0.95);
+}
+i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+#login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    max-width: 700px;
+    min-width: 300px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 2px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+input:not(last-child) {
+    margin-bottom: 10px;
+}
+#submit, #signup {
+    background-color: #e74c3c;
+    color: #f2f2f2;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+#submit:active, #signup:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 450px) {
+    .main__welcome {
+        font-size: 35px;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+    .welcome__sub {
+        font-size: 10px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+    .login__box {
+        width: 100px;
+    }
+}

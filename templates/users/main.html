@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="main">
+    <div class="main__welcome">Upload your music!</div>
+    <div class="welcome__sub">IndieRecords is a platform for indie musicians. </div>
+    <div class="login__box">
+        <button id="google">
+            <i class="fab fa-google"></i>
+            Login with Google
+        </button>
+        <button id="facebook">
+            <i class="fab fa-facebook-f"></i>
+            Login with Facebook
+        </button>
+        <form action="" method="POST" id="login-form">
+            {% csrf_token %}
+            <input type="text" placeholder="ID" name="userID" id="id">
+            <input type="password" placeholder="PASSWORD" name="userPassword" id="password">
+            <input type="submit" value="Sign in" id="submit">
+        </form>
+        <input type="button" value="Sign up!" id="signup" onclick="location.href='{% url 'users:signup' %}'">
+    </div>
+</div>
+{% endblock content %}
