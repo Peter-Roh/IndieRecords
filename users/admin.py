@@ -22,3 +22,14 @@ class CustomUserAdmin(UserAdmin):
             }
         ),
     )
+
+    list_display = (
+        "username",
+        "gender",
+        "superhost",
+    )
+
+    list_filter = (
+        "gender",
+        "superhost",
+    )
