@@ -58,6 +58,8 @@ PROJECT_APPS = [
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
     "musics.apps.MusicsConfig",
+    "reviews.apps.ReviewsConfig",
+    "playlists.apps.PlaylistsConfig",
 ]
 
 THIRD_PARTY_APPS = []

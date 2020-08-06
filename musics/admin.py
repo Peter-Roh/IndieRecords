@@ -38,6 +38,7 @@ class MusicAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "artist",
+        "get_Genre",
     )
 
     list_filter = (
@@ -54,3 +55,9 @@ class MusicAdmin(admin.ModelAdmin):
     filter_horizontal = (
         "genre",
     )
+
+    def get_Genre(self, obj):
+        genre = []
+        for item in obj.genre.all():
+            genre.append(item.genre)
+        return ",".join(genre)
