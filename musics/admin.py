@@ -39,6 +39,7 @@ class MusicAdmin(admin.ModelAdmin):
         "title",
         "artist",
         "get_Genre",
+        "created",
     )
 
     list_filter = (
@@ -56,8 +57,14 @@ class MusicAdmin(admin.ModelAdmin):
         "genre",
     )
 
+    raw_id_fields = (
+        "artist",
+    )
+
     def get_Genre(self, obj):
         genre = []
         for item in obj.genre.all():
             genre.append(item.genre)
         return ",".join(genre)
+
+    get_Genre.short_description = "Genre"

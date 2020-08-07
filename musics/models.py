@@ -17,9 +17,9 @@ class Music(core_models.TimestampedModel):
 
     """ Music Model Definition """
 
-    file = models.FileField(upload_to="uploads/music")
+    file = models.FileField(upload_to="music")
     title = models.CharField(max_length=150)
-    coverImage = models.ImageField(blank=True)
+    coverImage = models.ImageField(upload_to="coverimage", blank=True)
     genre = models.ManyToManyField(MusicType)
     lyrics = models.TextField(blank=True)
     description = models.TextField(blank=True)

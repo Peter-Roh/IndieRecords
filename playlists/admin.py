@@ -16,5 +16,11 @@ class PlaylistAdmin(admin.ModelAdmin):
         "musics",
     )
 
+    raw_id_fields = (
+        "user",
+    )
+
     def countMusics(self, obj):
         return obj.musics.count()
+
+    countMusics.short_description = "Number of Musics"

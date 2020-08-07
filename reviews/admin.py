@@ -21,3 +21,7 @@ class ReviewAdmin(admin.ModelAdmin):
         "user",
         "music",
     )
+
+    raw_id_fields = (
+        "user",
+    )
