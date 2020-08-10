@@ -3,13 +3,6 @@ from django.shortcuts import render
 
 def main(request):
 
-    ''' first page '''
+    ''' users page to choose how to sign up '''
 
-    return render(request, "users/main.html")
-
-
-def signup(request):
-
-    ''' signup page '''
-
-    return render(request, "users/signup.html")
+    return render(request, "users/user.html")

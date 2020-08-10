@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def main(request):
+
+    ''' first page '''
+
+    return render(request, "core/main.html")

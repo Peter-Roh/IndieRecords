@@ -1,2 +1,9 @@
+@import "./partials/footer.css";
 @import "./users/main.css";
 @import "./users/signup.css";
+@import "./musics/main.css";
+
+body {
+    display: flex;
+    flex-direction: column;
+}
