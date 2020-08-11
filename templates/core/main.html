@@ -12,12 +12,15 @@
             <i class="fab fa-facebook-f"></i>
             Login with Facebook
         </button>
-        <form action="" method="POST" id="login-form">
+        <form action="{% url 'core:login' %}" method="POST" id="login-form">
             {% csrf_token %}
-            <input type="text" placeholder="ID" name="userID" id="id">
-            <input type="password" placeholder="PASSWORD" name="userPassword" id="password">
+            {{form.as_p}}
             <input type="submit" value="Sign in" id="submit">
         </form>
+        <!--
+            <input type="text" placeholder="ID" name="userID" id="id">
+            <input type="password" placeholder="PASSWORD" name="userPassword" id="password">
+        -->
         <input type="button" value="Sign up!" id="signup" onclick="location.href='{% url 'users:user' %}'">
     </div>
 </div>

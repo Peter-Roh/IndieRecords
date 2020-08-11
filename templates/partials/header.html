@@ -1,0 +1,20 @@
+{% block content %}
+    <header>
+        <div class="menu-bar">
+            <div class="menu-bar__menu">discover</div>
+            <div class="menu-bar__menu">genres</div>
+            <div class="menu-bar__menu">my playlist</div>
+            <div class="menu-bar__menu">my page</div>
+        </div>
+        <div class="user__status">
+            <!--if logged in show avatar and username else send user to login page -->
+            <div class="login-box">
+                {% if user.is_authenticated %}
+                    <div>hi</div>
+                {% else %}
+                    <button class="login" onclick="location.href='{% url 'core:login' %}'">login</button>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+{% endblock content %}

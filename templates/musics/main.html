@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-    <div>hi</div>
+{% include "partials/header.html" %}
+    <div class="music">
+        <div class="music__month">
+            <div class="month__title">This month's music</div>
+        </div>
+        <div class="music__chart">
+            chart
+        </div>
+    </div>
 {% include "partials/footer.html" %}
 {% endblock content %}
