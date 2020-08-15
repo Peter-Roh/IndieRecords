@@ -1,17 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
+{% include "partials/header.html" %}
 <div class="signup">
     <div class="signup__box">
-        <p class="signup__text">Sign up!</p>
-        <button class="btn" id="signup__google">
-            <i class="fab fa-google"></i>
-            Sign up with Google
-        </button>
-        <button class="btn" id="signup__facebook">
-            <i class="fab fa-facebook-f"></i>
-            Sign up with Facebook
-        </button>
-        <button class="btn" id="signup__button" onclick="location.href=''">Sign up!</button>
+        <div class="signup__passport">
+            <button class="btn" id="signup__google">
+                <i class="fab fa-google"></i>
+                Sign up with Google
+            </button>
+            <button class="btn" id="signup__facebook">
+                <i class="fab fa-facebook-f"></i>
+                Sign up with Facebook
+            </button>
+        </div>
+        <form action="" method="POST" id="signup-form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn" id="signup__button" onclick="location.href=''">Sign up!</button>
+        </form>
     </div>
 </div>
+{% include "partials/footer.html" %}
 {% endblock content %}

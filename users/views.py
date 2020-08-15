@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from django.views.generic import FormView
+from django.urls import reverse_lazy
+from . import forms
 
 
-def main(request):
+class SignupView(FormView):
 
-    ''' users page to choose how to sign up '''
-
-    return render(request, "users/user.html")
+    template_name = "users/user.html"
+    form_class = forms.SignupForm
+    success_url = reverse_lazy("musics:main")

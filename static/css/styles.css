@@ -7,5 +7,16 @@
 body {
     display: flex;
     flex-direction: column;
-    background-image: url('../images/symphony.png');
+    background: #F2F2F7;
+    overflow: auto;
+}
+body::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+}
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #babac0;
+    border: 1px solid #fff;
 }

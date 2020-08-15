@@ -1,42 +1,31 @@
 .signup {
-    background-color: #95a5a6;
-    width: 100%;
     height: 100%;
-    opacity: 0.8;
+    margin-left: 8rem;
+    margin-right: 8rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-}
-.signup__text {
-    font-family: 'Noto Serif', serif;
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 40px;
 }
 .signup .signup__box {
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    width: 600px;
-    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
-.signup .signup__box .btn {
-    max-width: 700px;
-    min-width: 250px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.8), 0 3px 6px rgba(0, 0, 0, 0.08);
+.signup .signup__box .signup__passport {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0 solid #d2d6dc;
+    border-bottom-width: 1px;
+    width: 100%;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
 }
-.signup .signup__box .btn:active {
-    transform: scale(0.95);
-}
-.signup .signup__box #signup__google {
+.signup .signup__box .signup__passport #signup__google {
     font-family: 'Noto Serif', serif;
     background-color: #24292E;
     color: #f2f2f2;
@@ -44,9 +33,9 @@
     font-weight: 600;
     margin-bottom: 10px;
     cursor: pointer;
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.8), 0 3px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.3), 0 3px 6px rgba(0, 0, 0, 0.03);
 }
-.signup .signup__box #signup__facebook {
+.signup .signup__box .signup__passport #signup__facebook {
     font-family: 'Noto Serif', serif;
     background-color: #4294FF;
     color: #f2f2f2;
@@ -54,9 +43,22 @@
     font-weight: 600;
     margin-bottom: 10px;
     cursor: pointer;
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.8), 0 3px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.3), 0 3px 6px rgba(0, 0, 0, 0.03);
 }
-.signup .signup__box #signup__button {
+.signup .signup__box .signup__passport .btn, 
+.signup .signup__box form #signup__button {
+    max-width: 700px;
+    min-width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.3), 0 3px 6px rgba(0, 0, 0, 0.03);
+}
+.signup .signup__box .signup__passport .btn:active {
+    transform: scale(0.95);
+}
+.signup .signup__box form #signup__button {
     font-family: 'Noto Serif', serif;
     background-color: #e74c3c;
     color: #f2f2f2;
@@ -64,9 +66,79 @@
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 7px 14px rgba(50, 50, 93, 0.8), 0 3px 6px rgba(0, 0, 0, 0.08);
+    margin: 30px auto;
 }
-@media (max-width: 450px) {
+.signup .signup__box form #signup__button:active {
+    transform: scale(0.95);
+}
+.signup .signup__box form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+#id_gender {
+    max-width: 700px;
+    min-width: 300px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.8), 0 3px 6px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    text-indent: 40%;
+}
+#id_birthday_month, #id_birthday_day {
+    min-width: 80px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.8), 0 3px 6px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    text-indent: 5px;
+}
+#id_birthday_day {
+    min-width: 50px;
+}
+#id_birthday_year {
+    min-width: 80px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 50px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.8), 0 3px 6px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    text-indent: 5px;
+}
+@media (max-width: 800px) {
+    .signup {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        overflow: auto;
+    }
     .signup .signup__box {
         width: 300px;
+    }
+    .signup .signup__box .signup__passport {
+        width: 150%;
+    }
+    .signup .signup__box form {
+        margin-top: 1rem;
+    }
+    .signup .signup__box form label {
+        width: 100%;
+        display: inline-block;
     }
 }

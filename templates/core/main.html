@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="background"></div>
 <div class="main">
     <div class="main__welcome">Upload your music!</div>
     <div class="welcome__sub">IndieRecords is a platform for indie musicians. </div>
@@ -14,14 +15,10 @@
         </button>
         <form action="{% url 'core:login' %}" method="POST" id="login-form">
             {% csrf_token %}
-            {{form.as_p}}
+            {{form.as_table}}
             <input type="submit" value="Sign in" id="submit">
         </form>
-        <!--
-            <input type="text" placeholder="ID" name="userID" id="id">
-            <input type="password" placeholder="PASSWORD" name="userPassword" id="password">
-        -->
-        <input type="button" value="Sign up!" id="signup" onclick="location.href='{% url 'users:user' %}'">
+        <div class="signin">Don't have an account? <a href="{% url 'users:user' %}">Sign up!</a></div>
     </div>
 </div>
 {% endblock content %}
