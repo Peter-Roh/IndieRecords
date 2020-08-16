@@ -1,6 +1,6 @@
 # IndieRecords
 
-IndieRecords is a platform for indie musicians. 
+IndieRecords is a service for indie musicians. 
 
 ## Description
 
@@ -19,3 +19,4 @@ If you have pressed dislike button for the same artist multiple times while list
 - [ ] likes, dislikes for each music
 - [ ] Automatically delete the artist's music the user dislke
 - [ ] comments
+- [ ] music chart based on number of likes

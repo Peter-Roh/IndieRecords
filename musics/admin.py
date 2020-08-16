@@ -1,5 +1,8 @@
+"""
+configure admin panel related to music models
+"""
 from django.contrib import admin
-from . import models
+from musics import models
 
 
 @admin.register(models.MusicType)
@@ -17,7 +20,7 @@ class MusicAdmin(admin.ModelAdmin):
 
     fieldsets = (
         (
-            "Music Info", 
+            "Music Info",
             {
                 "fields":
                 (
@@ -38,7 +41,7 @@ class MusicAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "artist",
-        "get_Genre",
+        "get_genre",
         "created",
     )
 
@@ -61,10 +64,13 @@ class MusicAdmin(admin.ModelAdmin):
         "artist",
     )
 
-    def get_Genre(self, obj):
+    def get_genre(self, obj):
+
+        ''' show genres of a song in admin panel '''
+
         genre = []
         for item in obj.genre.all():
             genre.append(item.genre)
         return ",".join(genre)
 
-    get_Genre.short_description = "Genre"
+    get_genre.short_description = "Genre"

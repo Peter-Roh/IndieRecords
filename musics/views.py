@@ -1,3 +1,6 @@
+"""
+define views that starts with /music
+"""
 from django.shortcuts import render
 
 

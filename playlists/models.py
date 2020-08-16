@@ -1,3 +1,6 @@
+"""
+define models related to playlist
+"""
 from django.db import models
 from core import models as core_models
 

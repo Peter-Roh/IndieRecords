@@ -1,9 +1,11 @@
+"""
+define url that starts with /
+"""
 from django.urls import path
-from core.forms import CustomLoginForm
-from . import views
+from core import views
 
 
-app_name="core"
+app_name = "core"
 
 
 urlpatterns = [

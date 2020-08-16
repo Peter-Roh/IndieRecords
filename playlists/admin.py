@@ -1,5 +1,8 @@
+"""
+configure admin panel related to playlist
+"""
 from django.contrib import admin
-from . import models
+from playlists import models
 
 
 @admin.register(models.Playlist)
@@ -9,7 +12,7 @@ class PlaylistAdmin(admin.ModelAdmin):
 
     list_display = (
         "__str__",
-        "countMusics"
+        "count_musics"
     )
 
     filter_horizontal = (
@@ -20,7 +23,10 @@ class PlaylistAdmin(admin.ModelAdmin):
         "user",
     )
 
-    def countMusics(self, obj):
+    def count_musics(self, obj):
+
+        ''' return how many musics are in the playlist '''
+
         return obj.musics.count()
 
-    countMusics.short_description = "Number of Musics"
+    count_musics.short_description = "Number of Musics"

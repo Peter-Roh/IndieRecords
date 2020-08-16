@@ -1,5 +1,8 @@
+"""
+configure admin panel related to reviews
+"""
 from django.contrib import admin
-from . import models
+from reviews import models
 
 
 @admin.register(models.Review)

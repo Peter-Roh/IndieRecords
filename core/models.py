@@ -1,3 +1,6 @@
+"""
+define models that can be used commonly
+"""
 from django.db import models
 
 

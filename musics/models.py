@@ -1,5 +1,8 @@
-from core import models as core_models
+"""
+define music related models
+"""
 from django.db import models
+from core import models as core_models
 from users import models as user_models
 
 
@@ -10,7 +13,7 @@ class MusicType(core_models.TimestampedModel):
     genre = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.genre
+        return str(self.genre)
 
 
 class Music(core_models.TimestampedModel):

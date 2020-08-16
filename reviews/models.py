@@ -1,3 +1,6 @@
+"""
+define models related to reviews
+"""
 from django.db import models
 from core import models as core_models
 

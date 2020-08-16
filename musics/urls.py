@@ -1,5 +1,8 @@
+"""
+define url that starts with /music
+"""
 from django.urls import path
-from . import views
+from musics import views
 
 
 app_name = "music"

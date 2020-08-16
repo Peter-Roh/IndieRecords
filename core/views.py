@@ -1,11 +1,16 @@
+"""
+define login view
+"""
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.shortcuts import reverse
 from django.views.generic import FormView
-from . import forms
+from core import forms
 
 
 class LoginView(FormView):
+
+    """ login view definition """
 
     template_name = "core/main.html"
     form_class = forms.CustomLoginForm
