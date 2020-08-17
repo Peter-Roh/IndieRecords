@@ -13,10 +13,10 @@
                 Sign up with Facebook
             </button>
         </div>
-        <form action="" method="POST" id="signup-form">
+        <form action="{% url 'users:user' %}" method="POST" id="signup-form">
             {% csrf_token %}
             {{form.as_p}}
-            <button class="btn" id="signup__button" onclick="location.href=''">Sign up!</button>
+            <button class="btn" id="signup__button">Sign up!</button>
         </form>
     </div>
 </div>
