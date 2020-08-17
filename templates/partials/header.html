@@ -1,3 +1,4 @@
+{% load static %}
 {% block content %}
     <header>
         <div class="menu-bar">
@@ -11,7 +12,12 @@
             <!--if logged in show avatar and username else send user to login page -->
             <div class="login-box">
                 {% if user.is_authenticated %}
-                    <div>{{user.username}}</div>
+                    {% if user.avatar %}
+                        <img src="{{user.avatar.url}}" alt="user avatar" id="user__avatar">
+                    {% else %}
+                        <img src="{% static 'images/profile_dummy.png' %}" alt="no avatar" id="user__avatar">
+                    {% endif %}
+                    <div class="user__username">{{user.username}}, welcome!</div>
                 {% else %}
                     <button class="login" onclick="location.href='{% url 'core:login' %}'">login</button>
                 {% endif %}
