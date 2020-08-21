@@ -10,4 +10,5 @@ app_name = "users"
 
 urlpatterns = [
     path("", views.SignupView.as_view(), name="user"),
+    path("logout", views.log_out, name="logout"),
 ]

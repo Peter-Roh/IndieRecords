@@ -17,7 +17,10 @@
                     {% else %}
                         <img src="{% static 'images/profile_dummy.png' %}" alt="no avatar" id="user__avatar">
                     {% endif %}
-                    <div class="user__username">{{user.username}}, welcome!</div>
+                    <div class="user__username">{{user.username}}</div>
+                    <a href="{% url 'users:logout' %}">
+                        <i class="fas fa-door-open" title="Sign out"></i>
+                    </a>
                 {% else %}
                     <button class="login" onclick="location.href='{% url 'core:login' %}'">login</button>
                 {% endif %}

@@ -48,6 +48,7 @@ DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.sites',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -61,7 +62,12 @@ PROJECT_APPS = [
     "playlists.apps.PlaylistsConfig",
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
@@ -89,10 +95,35 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+            'https://www.googleapis.com/auth/user.birthday.read',
+            'https://www.googleapis.com/auth/user.gender.read',
+        ],
+        'PROFILE_FIELDS': [
+            'gender',
+            'birth',
+            'avatar',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -154,3 +185,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploads/images")
 MEDIA_URL = "/media/"
 
 LOGIN_REDIRECT_URL = '/music/'
+
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+ACCOUNT_SIGNUP_FORM_CLASS = 'users.forms.SignupForm'
+SITE_ID = 1

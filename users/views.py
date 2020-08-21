@@ -5,7 +5,9 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.views.generic import FormView
+from django.shortcuts import redirect
 from django.shortcuts import render
+from django.shortcuts import reverse
 from django.urls import reverse_lazy
 from users import forms
 
@@ -26,3 +28,10 @@ class SignupView(FormView):
         if user is not None:
             login(self.request, user)
         return super().form_valid(form)
+
+def log_out(request):
+
+    """ sign out a user """
+
+    logout(request)
+    return redirect(reverse("core:login"))

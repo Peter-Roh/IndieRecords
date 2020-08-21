@@ -26,6 +26,7 @@
     color: #f1c40f;
     margin: 0 auto;
     margin-top: 150px;
+    padding: 5px 5px;
 }
 .welcome__sub {
     font-family: 'Lora', serif;
@@ -116,12 +117,12 @@ input:not(last-child) {
         background-size: contain;
     }
     .main__welcome {
-        font-size: 35px;
+        font-size: 50px;
         margin: 0 auto;
         margin-top: 40px;
     }
     .welcome__sub {
-        font-size: 10px;
+        font-size: 15px;
         margin: 0 auto;
         margin-top: 10px;
     }
@@ -145,18 +146,8 @@ input:not(last-child) {
     font-weight: 800;
     color: #36969A;
 }
-@media (max-width: 450px) {
+@media (max-width: 600px) {
     .background {
         background-repeat: repeat;
-    }
-    .main .main__welcome {
-        margin-top: 80px;
-        font-size: 50px;
-    }
-    .main .welcome__sub {
-        font-size: 15px;
-    }
-    .login__box #google {
-        margin-top: 120px;
     }
 }
