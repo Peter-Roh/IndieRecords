@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "partials/header.html" %}
+<div class="mypage">
+    <div class="mypage__box">
+        <form action="{% url 'users:mypage' %}" method="POST" id="mypage-form">
+            {% csrf_token %}
+            <p>Email:</p><input type="text" />
+            <p>Profile Image: </p><input type="file" />
+            <p>Password:</p><input type="password" />
+            <button class="btn" id="mypage__button">Save changes</button>
+        </form>
+    </div>
+</div>
+
+{% include "partials/footer.html" %}
+{% endblock content %}

@@ -14,38 +14,6 @@
     align-items: center;
     width: 100%;
 }
-.signup .signup__box .signup__passport {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 0 solid #d2d6dc;
-    border-bottom-width: 1px;
-    width: 100%;
-    padding-bottom: 1rem;
-    margin-top: 2rem;
-}
-.signup .signup__box .signup__passport #signup__google {
-    font-family: 'Noto Serif', serif;
-    background-color: #24292E;
-    color: #f2f2f2;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    cursor: pointer;
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.3), 0 3px 6px rgba(0, 0, 0, 0.03);
-}
-.signup .signup__box .signup__passport #signup__facebook {
-    font-family: 'Noto Serif', serif;
-    background-color: #4294FF;
-    color: #f2f2f2;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    cursor: pointer;
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.3), 0 3px 6px rgba(0, 0, 0, 0.03);
-}
-.signup .signup__box .signup__passport .btn, 
 .signup .signup__box form #signup__button {
     max-width: 700px;
     min-width: 250px;
@@ -54,9 +22,6 @@
     border: none;
     outline: none;
     box-shadow: 0 7px 14px rgba(50, 50, 93, 0.3), 0 3px 6px rgba(0, 0, 0, 0.03);
-}
-.signup .signup__box .signup__passport .btn:active {
-    transform: scale(0.95);
 }
 .signup .signup__box form #signup__button {
     font-family: 'Noto Serif', serif;
@@ -72,7 +37,7 @@
     transform: scale(0.95);
 }
 .signup .signup__box form {
-    margin-top: 2rem;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -131,11 +96,8 @@
     .signup .signup__box {
         width: 300px;
     }
-    .signup .signup__box .signup__passport {
-        width: 150%;
-    }
     .signup .signup__box form {
-        margin-top: 1rem;
+        margin-top: 2rem;
     }
     .signup .signup__box form label {
         width: 100%;

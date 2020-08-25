@@ -9,17 +9,6 @@ class User(AbstractUser):
 
     """ Custom User Model """
 
-    GENDER_MALE = "male"
-    GENDER_FEMALE = "female"
-    GENDER_OTHER = "other"
-
-    GENDER_CHOICES = (
-        (GENDER_MALE, "Male"),
-        (GENDER_FEMALE, "Female"),
-        (GENDER_OTHER, "Other"),
-    )
-
     avatar = models.ImageField(upload_to="avatar", blank=True)
-    birth = models.DateField(null=True, blank=True)
-    gender = models.CharField(choices=GENDER_CHOICES, max_length=7, blank=True)
+    profile_url = models.CharField(null=True, blank=True, max_length=256)
     superhost = models.BooleanField(default=False)

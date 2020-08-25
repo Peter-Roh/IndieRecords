@@ -111,13 +111,6 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': [
             'profile',
             'email',
-            'https://www.googleapis.com/auth/user.birthday.read',
-            'https://www.googleapis.com/auth/user.gender.read',
-        ],
-        'PROFILE_FIELDS': [
-            'gender',
-            'birth',
-            'avatar',
         ],
         'AUTH_PARAMS': {
             'access_type': 'online',
@@ -190,3 +183,4 @@ ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
 ACCOUNT_SIGNUP_FORM_CLASS = 'users.forms.SignupForm'
 SITE_ID = 1
+SOCIALACCOUNT_ADAPTER = 'users.adapter.CustomAccountAdapter'

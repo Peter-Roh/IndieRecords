@@ -10,5 +10,6 @@ app_name = "users"
 
 urlpatterns = [
     path("", views.SignupView.as_view(), name="user"),
+    path("mypage", views.Mypage, name="mypage"),
     path("logout", views.log_out, name="logout"),
 ]

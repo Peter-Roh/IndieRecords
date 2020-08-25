@@ -2,10 +2,11 @@
 {% block content %}
     <header>
         <div class="menu-bar">
+            <div class="menu-bar__menu"><a href="{% url 'musics:main' %}">home</a></div>
             <div class="menu-bar__menu">discover</div>
             <div class="menu-bar__menu">genres</div>
             <div class="menu-bar__menu">my playlist</div>
-            <div class="menu-bar__menu">my page</div>
+            <div class="menu-bar__menu"><a href="{% url 'users:mypage' %}">my page</a></div>
         </div>
         <i class="fas fa-bars" id="bar-icon"></i>
         <div class="user__status">
@@ -14,6 +15,8 @@
                 {% if user.is_authenticated %}
                     {% if user.avatar %}
                         <img src="{{user.avatar.url}}" alt="user avatar" id="user__avatar">
+                    {% elif user.profile_url %}
+                        <img src="{{user.profile_url}}" alt="user avatar" id="user__avatar">
                     {% else %}
                         <img src="{% static 'images/profile_dummy.png' %}" alt="no avatar" id="user__avatar">
                     {% endif %}
@@ -28,10 +31,10 @@
         </div>
     </header>
     <div class="mobile__bar hidden" id="mobile__bar">
+        <div class="mobile-bar__menu"><a href="{% url 'musics:main' %}">home</a></div>
         <div class="mobile-bar__menu">discover</div>
         <div class="mobile-bar__menu">genres</div>
         <div class="mobile-bar__menu">my playlist</div>
-        <div class="mobile-bar__menu">my page</div>
     </div>
     <script>
         openBar();

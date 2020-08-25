@@ -1,21 +1,8 @@
 {% extends "base.html" %}
-{% load socialaccount %}
 {% block content %}
 {% include "partials/header.html" %}
 <div class="signup">
     <div class="signup__box">
-        <div class="signup__passport">
-            <button class="btn" id="signup__google">
-                <a href="/accounts/signup">
-                    <i class="fab fa-google"></i>
-                    Sign up with Google
-                </a>
-            </button>
-            <button class="btn" id="signup__facebook">
-                <i class="fab fa-facebook-f"></i>
-                Sign up with Facebook
-            </button>
-        </div>
         <form action="{% url 'users:user' %}" method="POST" id="signup-form">
             {% csrf_token %}
             {{form.as_p}}

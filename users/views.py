@@ -35,3 +35,8 @@ def log_out(request):
 
     logout(request)
     return redirect(reverse("core:login"))
+
+
+def Mypage(request):
+
+    return render(request, "users/mypage.html")
