@@ -3,13 +3,12 @@
 {% include "partials/header.html" %}
 <div class="mypage">
     <div class="mypage__box">
-        <form action="{% url 'users:mypage' %}" method="POST" id="mypage-form">
+        <form action="{% url 'users:mypage' %}" method="POST" id="mypage-form" enctype="multipart/form-data">
             {% csrf_token %}
-            <p>Email:</p><input type="text" />
-            <p>Profile Image: </p><input type="file" />
-            <p>Password:</p><input type="password" />
+            {{form.as_p}}
             <button class="btn" id="mypage__button">Save changes</button>
         </form>
+        <!--회원 탈퇴-->
     </div>
 </div>
 

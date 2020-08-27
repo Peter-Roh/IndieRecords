@@ -23,6 +23,7 @@ class CustomAccountAdapter(DefaultSocialAccountAdapter):
 
         if social_app_name == "GOOGLE":
             user.profile_url = user.socialaccount_set.all()[0].extra_data['picture']
+            user.login_method = User.LOGIN_GOOGLE
             user.save()
 
         return user

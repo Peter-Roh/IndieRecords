@@ -2,6 +2,8 @@
 define forms related to users
 """
 from django import forms
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserChangeForm
 from django.forms.widgets import PasswordInput
 from users.models import User
 
@@ -12,8 +14,8 @@ class SignupForm(forms.Form):
 
     username = forms.CharField()
     email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
-    password1 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
+    password = forms.CharField(widget=PasswordInput)
+    password1 = forms.CharField(widget=PasswordInput, label="Confirm Password")
 
     def clean_username(self):
         username = self.cleaned_data.get("username")
@@ -39,3 +41,12 @@ class SignupForm(forms.Form):
         user.email = email
         user.set_password(password)
         user.save()
+
+
+class CustomUserChangeForm(UserChangeForm):
+
+    """ custom user change form """
+
+    class Meta:
+        model = get_user_model()
+        fields = ("email", "avatar")

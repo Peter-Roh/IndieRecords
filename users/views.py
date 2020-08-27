@@ -4,15 +4,19 @@ define views related to users
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import FormView
+from django.views.generic import UpdateView
 from django.shortcuts import redirect
-from django.shortcuts import render
 from django.shortcuts import reverse
 from django.urls import reverse_lazy
 from users import forms
+from users.models import User
+from users import mixins
 
 
-class SignupView(FormView):
+class SignupView(mixins.LoggedOutOnlyView, FormView):
 
     """ signup view definition """
 
@@ -37,6 +41,24 @@ def log_out(request):
     return redirect(reverse("core:login"))
 
 
-def Mypage(request):
+class Mypage(SuccessMessageMixin, UpdateView):
 
-    return render(request, "users/mypage.html")
+    """ mypage to update profiles """
+
+    template_name = "users/mypage.html"
+    model = User
+    success_url = reverse_lazy("musics:main")
+    success_message = "Profile Updated"
+    fields = ("email", "avatar")
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def form_valid(self, form):
+        self.request.user.profile_url = ""
+        return super().form_valid(form)
+
+
+class UpdatePassword(SuccessMessageMixin, PasswordChangeView):
+
+    pass
