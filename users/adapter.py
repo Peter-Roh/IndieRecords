@@ -1,3 +1,6 @@
+'''
+things that help social logins
+'''
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 from users.models import User
 

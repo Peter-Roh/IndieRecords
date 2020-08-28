@@ -5,10 +5,11 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.shortcuts import reverse
 from django.views.generic import FormView
+from users import mixins
 from core import forms
 
 
-class LoginView(FormView):
+class LoginView(mixins.LoggedOutOnlyView, FormView):
 
     """ login view definition """
 

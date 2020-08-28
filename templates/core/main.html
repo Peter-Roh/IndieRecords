@@ -9,12 +9,12 @@
         <button id="google">
             <a href="{% provider_login_url 'google' %}">
                 <i class="fab fa-google"></i>
-                Login with Google
+                Continue with Google
             </a>
         </button>
         <button id="facebook">
             <i class="fab fa-facebook-f"></i>
-            Login with Facebook
+            Continue with Facebook
         </button>
         <form action="{% url 'core:login' %}" method="POST" id="login-form">
             {% csrf_token %}

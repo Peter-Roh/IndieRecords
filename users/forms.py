@@ -18,14 +18,16 @@ class SignupForm(forms.Form):
     password1 = forms.CharField(widget=PasswordInput, label="Confirm Password")
 
     def clean_username(self):
+        '''  check username '''
         username = self.cleaned_data.get("username")
         try:
-            User.objects.get(username = username)
+            User.objects.get(username=username)
             raise forms.ValidationError("That username is already taken. ")
         except User.DoesNotExist:
             return username
 
     def clean_password1(self):
+        ''' check password '''
         password = self.cleaned_data.get("password")
         password1 = self.cleaned_data.get("password1")
         if password != password1:
@@ -33,7 +35,8 @@ class SignupForm(forms.Form):
         else:
             return password
 
-    def save(self, *args, **kwargs):
+    def save(self):
+        ''' sign up user '''
         username = self.cleaned_data.get("username")
         email = self.cleaned_data.get("email")
         password = self.cleaned_data.get("password")
