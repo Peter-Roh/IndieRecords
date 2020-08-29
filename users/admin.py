@@ -34,8 +34,10 @@ class CustomUserAdmin(UserAdmin):
                 "fields":
                 (
                     "avatar",
-                    "profile_url",
+                    "gender",
+                    "birth",
                     "login_method",
+                    "profile_url",
                     "superhost",
                 )
             }
@@ -45,12 +47,14 @@ class CustomUserAdmin(UserAdmin):
     list_display = (
         "username",
         "email",
+        "gender",
         "login_method",
         "superhost",
     )
 
     list_filter = (
         "login_method",
+        "gender",
         "superhost",
     )
 

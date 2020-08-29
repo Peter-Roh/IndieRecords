@@ -24,7 +24,6 @@ urlpatterns = [
     path("", include("core.urls", namespace="core")),
     path("users/", include("users.urls", namespace="users")),
     path("music/", include("musics.urls", namespace="musics")),
-    path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
 ]
 

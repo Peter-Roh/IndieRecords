@@ -77,7 +77,8 @@ def google_callback(request):
                     "Accept": "application/json"
                 },
             )
-            print(profile_request.json())
-            print(detail_request.json())
+            profile_json = profile_request.json()
+            detail_json = detail_request.json()
+            
     else:
         return redirect(reverse("core:login"))

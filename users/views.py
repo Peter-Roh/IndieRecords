@@ -49,7 +49,7 @@ class Mypage(SuccessMessageMixin, UpdateView):
     model = User
     success_url = reverse_lazy("musics:main")
     success_message = "Profile Updated"
-    fields = ("email", "avatar")
+    fields = ("email", "avatar", "gender")
 
     def get_object(self, queryset=None):
         return self.request.user
