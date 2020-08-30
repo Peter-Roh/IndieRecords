@@ -11,7 +11,7 @@ If you have pressed dislike button for the same artist multiple times while list
 
 ## Features to build
 
-- [ ] Login / Sign up with google
+- [x] Login / Sign up with google
 - [ ] Login / Sign up with facebook
 - [ ] Upload music
 - [ ] Randomly play music
