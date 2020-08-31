@@ -56,6 +56,7 @@ def google_callback(request):
     '''
     get informations from google people api
     check if the use is already joined
+    create new user
     log the user in
     '''
     try:
@@ -103,6 +104,12 @@ def google_callback(request):
                     family_name = profile_json.get("family_name")
                     given_name = profile_json.get("given_name")
                     gender = detail_json.get("genders")[0]['value']
+                    if gender == 'male':
+                        gender = User.GENDER_MALE
+                    elif gender == 'female':
+                        gender = User.GENDER_FEMALE
+                    else:
+                        gender = User.GENDER_OTHER
                     date = detail_json.get("birthdays")[0]['date']
                     try:
                         user = User.objects.get(username=name)

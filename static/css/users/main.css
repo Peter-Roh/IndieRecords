@@ -59,6 +59,11 @@
 .login__box #google:active {
     transform: scale(0.95);
 }
+.login__box #google a,
+.login__box #google a:visited {
+    text-decoration: none;
+    color: #f2f2f2;
+}
 .login__box #facebook {
     margin-top: 10px;
     margin-bottom: 10px;

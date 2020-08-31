@@ -35,7 +35,12 @@ header {
     word-break: break-all;
     overflow: hidden;
 }
-.menu-bar .menu-bar__menu:hover {
+.menu-bar .menu-bar__menu a,
+.menu-bar .menu-bar__menu a:visited {
+    text-decoration: none;
+    color: #910A2A;
+}
+.menu-bar .menu-bar__menu a:hover {
     color: #1C1C1E;
 }
 .user__status .login-box {
@@ -80,6 +85,43 @@ header {
 .mobile__bar {
     display: none;
 }
+.user__modal {
+    font-family: 'Roboto', sans-serif;
+    z-index: 2;
+    background-color: white;
+    width: 250px;
+    height: 80px;
+    border-radius: 8px;
+    border-top-left-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.05);
+    line-height: 1.5;
+    position: absolute;
+    right: 8rem;
+    top: 5rem;
+}
+.user__modal .modal__content {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user__modal .modal__content:hover {
+    background-color: #F4F5F7;
+}
+.user__modal .modal__content,
+.user__modal .modal__content:visited {
+    text-decoration: none;
+    color: #374151;
+    font-size: 18px;
+}
+.user__modal.hidden {
+    display: none;
+}
 @media (max-width: 1000px) {
     header {
         margin-left: 1rem;
@@ -121,7 +163,15 @@ header {
         font-weight: 600;
         color: #910A2A;
     }
+    .mobile__bar .mobile-bar__menu a,
+    .mobile__bar .mobile-bar__menu a:visited {
+        text-decoration: none;
+        color: #910A2A;
+    }
     .user__status {
         margin-left: auto;
+    }
+    .user__modal {
+        right: 1rem;
     }
 }
