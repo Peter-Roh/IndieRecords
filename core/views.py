@@ -41,6 +41,10 @@ class GoogleException(Exception):
     pass
 
 
+class FacebookException(Exception):
+    pass
+
+
 def google_login(request):
     ''' use google oauth '''
     client_id = os.environ.get("GOOGLE_ID")
@@ -49,6 +53,15 @@ def google_login(request):
     # get code from google oauth
     return redirect(
         f"https://accounts.google.com/o/oauth2/v2/auth?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code&scope={scope}&access_type=offline"
+    )
+
+
+def facebook_login(request):
+    ''' use facebook oauth '''
+    client_id = os.environ.get("FACEBOOK_ID")
+    redirect_uri = "http://localhost:8000/login/facebook/callback/"
+    return redirect(
+        f"https://www.facebook.com/v8.0/dialog/oauth?client_id={client_id}&redirect_uri={redirect_uri}"
     )
 
 
@@ -143,3 +156,22 @@ def google_callback(request):
             raise GoogleException()
     except GoogleException:
         return redirect(reverse("core:login"))
+
+
+def facebook_callback(request):
+    ''' sign in and log in with facebook '''
+    code = request.GET.get("code", None)
+    client_id = os.environ.get("FACEBOOK_ID")
+    client_secret = os.environ.get("FACEBOOK_SECRET")
+    redirect_uri = "http://localhost:8000/login/facebook/callback/"
+    if code is not None:
+        # get access_token with the code
+        request_api = requests.post(
+            f"https://graph.facebook.com/v8.0/oauth/access_token?client_id={client_id}&client_secret={client_secret}&redirect_uri={redirect_uri}&code={code}"
+        )
+        result_json = request_api.json()
+        error = result_json.get("error", None)
+        if error is not None:
+            raise FacebookException()
+        else:
+            access_token = result_json.get("access_token")
