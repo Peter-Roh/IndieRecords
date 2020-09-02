@@ -11,9 +11,11 @@
                 Continue with Google
             </a>
         </button>
-        <button id="facebook">
-            <i class="fab fa-facebook-f"></i>
-            Continue with Facebook
+        <button id="kakao">
+            <a href="{% url 'core:kakao-login' %}">
+                <i class="fab fa-kaggle"></i>
+                Continue with Kakao
+            </a>
         </button>
         <form action="{% url 'core:login' %}" method="POST" id="login-form">
             {% csrf_token %}

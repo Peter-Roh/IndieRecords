@@ -21,12 +21,12 @@ class User(AbstractUser):
 
     LOGIN_DEFAULT = "default"
     LOGIN_GOOGLE = "google"
-    LOGIN_FACEBOOK = "facebook"
+    LOGIN_KAKAO = "kakao"
 
     LOGIN_CHOICES = (
         (LOGIN_DEFAULT, "Default"),
         (LOGIN_GOOGLE, "Google"),
-        (LOGIN_FACEBOOK, "Facebook"),
+        (LOGIN_KAKAO, "Kakao"),
     )
 
     avatar = models.ImageField(upload_to="avatar", blank=True)

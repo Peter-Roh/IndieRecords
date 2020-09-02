@@ -60,14 +60,16 @@
     transform: scale(0.95);
 }
 .login__box #google a,
-.login__box #google a:visited {
+.login__box #google a:visited,
+.login__box #kakao a,
+.login__box #kakao a:visited {
     text-decoration: none;
     color: #f2f2f2;
 }
-.login__box #facebook {
+.login__box #kakao {
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: #4294FF;
+    background-color: #FEE100;
     color: #f2f2f2;
     font-size: 16px;
     font-weight: 600;
@@ -78,7 +80,7 @@
     height: 50px;
     box-shadow: 0 7px 14px rgba(50, 50, 93, 0.8), 0 3px 6px rgba(0, 0, 0, 0.08);
 }
-.login__box #facebook:active {
+.login__box #kakao:active {
     transform: scale(0.95);
 }
 i {

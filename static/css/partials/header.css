@@ -54,6 +54,7 @@ header {
     height: 40px;
     border-radius: 50%;
     margin-right: 5px;
+    cursor: pointer;
 }
 .user__status .login-box .user__username {
     color: #910A2A;
