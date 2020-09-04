@@ -55,7 +55,6 @@ class Mypage(SuccessMessageMixin, UpdateView):
         return self.request.user
 
     def form_valid(self, form):
-        self.request.user.profile_url = ""
         return super().form_valid(form)
 
 

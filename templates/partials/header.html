@@ -18,8 +18,6 @@
                 {% if user.is_authenticated %}
                     {% if user.avatar %}
                         <img src="{{user.avatar.url}}" alt="user avatar" id="user__avatar" onclick="controlModal()">
-                    {% elif user.profile_url %}
-                        <img src="{{user.profile_url}}" alt="user avatar" id="user__avatar" onclick="controlModal()">
                     {% else %}
                         <img src="{% static 'images/profile_dummy.png' %}" alt="no avatar" id="user__avatar" onclick="controlModal()">
                     {% endif %}

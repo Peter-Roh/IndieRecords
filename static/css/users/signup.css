@@ -74,6 +74,9 @@
 #id_birthday_day {
     min-width: 50px;
 }
+#id_birthday_month {
+    min-width: 130px;
+}
 #id_birthday_year {
     min-width: 80px;
     border-radius: 10px;
