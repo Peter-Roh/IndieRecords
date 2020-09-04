@@ -12,7 +12,7 @@ If you have pressed dislike button for the same artist multiple times while list
 ## Features to build
 
 - [x] Login / Sign up with google
-- [ ] Login / Sign up with kakao
+- [x] Login / Sign up with kakao
 - [ ] Upload music
 - [ ] Randomly play music
 - [ ] Play music by genre

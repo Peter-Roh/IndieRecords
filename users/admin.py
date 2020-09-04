@@ -37,7 +37,6 @@ class CustomUserAdmin(UserAdmin):
                     "gender",
                     "birth",
                     "login_method",
-                    "profile_url",
                     "superhost",
                 )
             }

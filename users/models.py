@@ -32,6 +32,5 @@ class User(AbstractUser):
     avatar = models.ImageField(upload_to="avatar", blank=True)
     birth = models.DateField(null=True, blank=True)
     gender = models.CharField(choices=GENDER_CHOICES, max_length=7, blank=True)
-    profile_url = models.CharField(null=True, blank=True, max_length=256)
     login_method = models.CharField(max_length=50, choices=LOGIN_CHOICES, default=LOGIN_DEFAULT)
     superhost = models.BooleanField(default=False)

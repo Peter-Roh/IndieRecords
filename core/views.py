@@ -6,6 +6,7 @@ import os
 import requests
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
+from django.core.files.base import ContentFile
 from django.shortcuts import redirect
 from django.shortcuts import reverse
 from django.views.generic import FormView
@@ -141,11 +142,14 @@ def google_callback(request):
                             last_name=family_name,
                             gender=gender,
                             login_method=User.LOGIN_GOOGLE,
-                            profile_url=picture,
                             birth=datetime.datetime(date['year'], date['month'], date['day'])
                         )
                         user.set_unusable_password()
                         user.save()
+                        # get image file from the url
+                        if picture is not None:
+                            photo_request = requests.get(picture)
+                            user.avatar.save(f"{name}_avatar", ContentFile(photo_request.content))
                     login(request, user)
                     return redirect(reverse("musics:main"))
                 else:
@@ -159,7 +163,7 @@ def google_callback(request):
 
 
 def kakao_callback(request):
-    ''' sign in and log in with facebook '''
+    ''' sign in and log in with kakao '''
     try:
         code = request.GET.get("code", None)
         client_id = os.environ.get("KAKAO_KEY")
@@ -183,6 +187,45 @@ def kakao_callback(request):
                     },
                 )
                 profile_json = profile_request.json()
-                print(profile_json)
+                kakao_id = profile_json.get("id")
+                if kakao_id is not None:
+                    name = profile_json.get("properties")['nickname']
+                    picture = profile_json.get("properties")['profile_image']
+                    email = profile_json.get("kakao_account")["email"]
+                    if email is None:
+                        raise KakaoException()
+                    gender = profile_json.get("kakao_account")["gender"]
+                    if gender == 'male':
+                        gender = User.GENDER_MALE
+                    elif gender == 'female':
+                        gender = User.GENDER_FEMALE
+                    else:
+                        gender = User.GENDER_OTHER
+                    try:
+                        user = User.objects.get(username=name)
+                        # user already exists
+                        if user.login_method != User.LOGIN_KAKAO:
+                            # the user already has account with different login method
+                            # wrong login attempt
+                            raise KakaoException()
+                        # else the user is trying to log in. the user already signed up before
+                    except User.DoesNotExist:
+                        # create new user with infos
+                        user = User.objects.create(
+                            username=name,
+                            email=email,
+                            gender=gender,
+                            login_method=User.LOGIN_KAKAO,
+                        )
+                        user.set_unusable_password()
+                        user.save()
+                        # get image file from the url
+                        if picture is not None:
+                            photo_request = requests.get(picture)
+                            user.avatar.save(f"{name}_avatar", ContentFile(photo_request.content))
+                    login(request, user)
+                    return redirect(reverse("musics:main"))
+                else:
+                    raise KakaoException()
     except KakaoException:
         return redirect(reverse("core:login"))
