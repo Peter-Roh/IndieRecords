@@ -1,18 +1,18 @@
 {% load static %}
 {% block content %}
-    <header>
+    <header class="flex justify-between items-center text-xl mt-8 pb-8 h-16">
         <div class="menu-bar">
-            <div class="menu-bar__menu"><a href="{% url 'musics:main' %}">home</a></div>
-            <div class="menu-bar__menu">discover</div>
-            <div class="menu-bar__menu">genres</div>
-            <div class="menu-bar__menu">my playlist</div>
+            <div class="menu-bar__menu uppercase"><a href="{% url 'musics:main' %}">home</a></div>
+            <div class="menu-bar__menu uppercase">discover</div>
+            <div class="menu-bar__menu uppercase">genres</div>
+            <div class="menu-bar__menu uppercase">my playlist</div>
         </div>
-        <div class="user__modal hidden" id="user__modal">
+        <div class="user__modal hidden bg-white shadow-xl" id="user__modal">
             <a class="modal__content" href="{% url 'users:mypage' %}">MY PAGE</a>
             <a class="modal__content" href="{% url 'users:logout' %}">SIGN OUT</a>
         </div>
         <i class="fas fa-bars" id="bar-icon"></i>
-        <div class="user__status">
+        <div class="user__status flex justify-end">
             <!--if logged in show avatar and username else send user to login page -->
             <div class="login-box">
                 {% if user.is_authenticated %}
@@ -28,7 +28,7 @@
             </div>
         </div>
     </header>
-    <div class="mobile__bar hidden" id="mobile__bar">
+    <div class="mobile__bar hidden bg-gray-100" id="mobile__bar">
         <div class="mobile-bar__menu"><a href="{% url 'musics:main' %}">home</a></div>
         <div class="mobile-bar__menu">discover</div>
         <div class="mobile-bar__menu">genres</div>

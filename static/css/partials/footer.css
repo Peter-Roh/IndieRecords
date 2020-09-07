@@ -1,24 +1,10 @@
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 50px;
-    border: 0 solid #d2d6dc;
-    border-top-width: 1px;
-    padding-top: 1rem;
-    margin-bottom: 2rem;
     margin-left: 8rem;
     margin-right: 8rem;
-    margin-top: auto;
-    font-size: 16px;
-    color: #9fa6b2;
-    font-family: 'Lora', serif;
+    border: 0 solid #d2d6dc;
+    border-top-width: 1px;
 }
-footer a {
-    text-decoration: none;
-    color: #9fa6b2;
-}
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     footer {
         margin-left: 1rem;
         margin-right: 1rem;

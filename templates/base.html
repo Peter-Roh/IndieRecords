@@ -7,19 +7,15 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, viewport-fit=cover"/>
     <!--font awesome-->
     <script src="https://kit.fontawesome.com/71509a6d5a.js" crossorigin="anonymous"></script>
-    <!--google font-->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!--link files-->
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tailwind/styles.css' %}">
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
     <title>IndieRecords</title>
 </head>
-<body>
+<body class="bg-gray-100 flex flex-col overflow-auto">
 {% block content %}
 {% endblock %}

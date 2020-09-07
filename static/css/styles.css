@@ -4,12 +4,6 @@
 @import "./users/signup.css";
 @import "./musics/main.css";
 
-body {
-    display: flex;
-    flex-direction: column;
-    background: #F2F2F7;
-    overflow: auto;
-}
 body::-webkit-scrollbar {
     width: 10px;
     border-radius: 10px;

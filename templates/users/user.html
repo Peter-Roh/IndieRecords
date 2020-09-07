@@ -6,7 +6,7 @@
         <form action="{% url 'users:user' %}" method="POST" id="signup-form">
             {% csrf_token %}
             {{form.as_p}}
-            <button class="btn" id="signup__button">Sign up!</button>
+            <button class="btn shadow-2xl" id="signup__button">Sign up!</button>
         </form>
     </div>
 </div>
